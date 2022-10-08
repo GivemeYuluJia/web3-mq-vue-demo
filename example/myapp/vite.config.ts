@@ -12,7 +12,5 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-  optimizeDeps: {
-    // include: ["web3-mq-vue"],
-  },
+  optimizeDeps: {},
 });
