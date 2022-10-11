@@ -5,18 +5,20 @@
 })(this, (function (exports, vue) { 'use strict';
 
   var script = {
-      name: 'Button',
-      methods: {
-          handleClick: function (ev) {
-              console.log(ev);
-          }
+    name: "Button",
+    methods: {
+      handleClick: function handleClick(ev) {
+        console.log(ev);
       }
+    }
   };
 
   function render(_ctx, _cache, $props, $setup, $data, $options) {
-    return (vue.openBlock(), vue.createElementBlock("button", {
-      onClick: _cache[0] || (_cache[0] = (...args) => ($options.handleClick && $options.handleClick(...args)))
-    }, "点击吧"))
+    return vue.openBlock(), vue.createElementBlock("button", {
+      onClick: _cache[0] || (_cache[0] = function () {
+        return $options.handleClick && $options.handleClick.apply($options, arguments);
+      })
+    }, "\u70B9\u51FB\u5427");
   }
 
   script.render = render;

@@ -10,7 +10,7 @@
     "build": "rm -fr dist && rm -fr es && rollup -c rollup.config.js",
     "build:tsc": "run-p build:tsc-*",
     "build:tsc-es": "tsc --emitDeclarationOnly -d --outDir es/",
-    "build:tsc-dist": "tsc --emitDeclarationOnly -d --outDir diat/"
+    "build:tsc-dist": "tsc --emitDeclarationOnly -d --outDir dist/"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

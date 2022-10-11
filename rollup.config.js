@@ -16,7 +16,7 @@ import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const isDev = process.env.ROLLUP_WATCH || false;
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.vue', '.js', '.jsx', '.ts', '.tsx'];
 const externalDependencies = ['vue', 'web3-mq']
 
 const basePlugins = [
@@ -31,7 +31,7 @@ const basePlugins = [
         find: '@',
         replacement:  path.resolve(__dirname, 'src'),
         customResolver: resolve({
-          extensions: ['.ts', '.vue', '.js'],
+          extensions: ['.vue', '.ts', '.js'],
         }),
       },
     ],
@@ -41,23 +41,23 @@ const basePlugins = [
   }),
   postcss({
     extract: 'css/index.css',
-    modules: true,
+    // modules: true,
     minimize: !isDev,
     use: ['sass'],
     extensions: ['.css', '.scss'],
   }),
   // svg(),
   image(),
-  ts({
-    tsconfig: path.resolve(__dirname, './tsconfig.json'),
-    extensions,
-  }),
-  // esbuild({
-  //   target: 'esnext',
-  //   minify: false,
-  //   jsx: 'preserve',
-  //   tsconfig: 'tsconfig.json',
+  // ts({
+  //   tsconfig: path.resolve(__dirname, './tsconfig.json'),
+  //   extensions,
   // }),
+  esbuild({
+    target: 'esnext',
+    minify: false,
+    jsx: 'preserve',
+    tsconfig: 'tsconfig.json',
+  }),
   babel({
     presets: ['@babel/preset-env'],
     babelHelpers: 'runtime',
@@ -92,7 +92,8 @@ const umdConfig = {
 };
 
 const esConfig = {
-  input: ['src/components/**/*.ts', 'src/*.ts'],
+  // input: ['src/components/**/*.ts', 'src/components/**/*.vue', 'src/*.ts'],
+  input: ['src/components/**/*', 'src/*.ts'],
   // input: path.resolve(__dirname, './src/index.ts'),
   output: {
     dir: 'es',
@@ -133,7 +134,5 @@ const esConfig = {
 //   external: externalDependencies,
 //   plugins: [...basePlugins]
 // };
-
-
 
 export default [umdConfig, esConfig];

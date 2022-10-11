@@ -19,6 +19,7 @@
     "module": "esnext",
     // 指定ECMAScript目标版本
     "target": "esnext",
+    "outDir": "./dist",
     // 若有未使用的参数则抛错
     "noUnusedParameters": true,
     // 若有未使用的局部变量则抛错
@@ -31,7 +32,7 @@
     // 允许编译js
     "allowJs": true,
     "declaration": true,
-    "declarationDir": "./dist",
+    // "declarationDir": "./dist",
     // 通过它可以来控制没被使用的导入语句将会被如何处理
     "importsNotUsedAsValues": "preserve"
   },

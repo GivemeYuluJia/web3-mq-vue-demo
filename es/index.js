@@ -1,5 +1,6 @@
-import { c as components } from './_chunks/dep-492beb58.mjs';
+import { c as components } from './_chunks/dep-38b00dfb.mjs';
 export { default as Button } from './components/Button/index.js';
+import './components/Button/Button.js';
 import 'vue';
 import './utils.js';
 
