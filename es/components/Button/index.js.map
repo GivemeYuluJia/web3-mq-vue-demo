@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sources":["../../../src/components/Button/index.ts"],"sourcesContent":["import Button from \"./Button.vue\";\nimport { withInstall } from \"../../utils.js\";\n\nexport default withInstall(Button);\n"],"names":["withInstall","Button"],"mappings":";;;;AAGA,YAAeA,YAAYC,OAA3B;;;;"}
